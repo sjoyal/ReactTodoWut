@@ -18,6 +18,8 @@
   "homepage": "https://github.com/sjoyal/ReactTodoWut#readme",
   "dependencies": {},
   "devDependencies": {
-    "react-tools": "^0.13.3"
+    "browser-sync": "^2.8.2",
+    "react-tools": "^0.13.3",
+    "wiredep": "^2.2.2"
   }
 }
