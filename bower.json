@@ -1,0 +1,22 @@
+{
+  "name": "ReactTodoWut",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sjoyal/ReactTodoWut",
+  "authors": [
+    "Sean Joyal <sean.joyal@gmail.com>"
+  ],
+  "description": "A todo list playground for experimenting with react.js",
+  "main": "app/index.html",
+  "license": "CC0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "react": "~0.13.3"
+  }
+}

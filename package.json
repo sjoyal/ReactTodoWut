@@ -1,0 +1,26 @@
+{
+  "name": "react-todo-wut",
+  "version": "0.0.0",
+  "description": "A todo list playground for experimenting with react.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjoyal/ReactTodoWut.git"
+  },
+  "author": "Sean Joyal",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/sjoyal/ReactTodoWut/issues"
+  },
+  "homepage": "https://github.com/sjoyal/ReactTodoWut#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.8.2",
+    "node-sass": "^3.2.0",
+    "react-tools": "^0.13.3",
+    "wiredep": "^2.2.2"
+  }
+}
