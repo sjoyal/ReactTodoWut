@@ -6059,6 +6059,15 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+html, body {
+  width: 100%;
+  height: auto; }
+
+h2 {
+  margin: 0;
+  padding-top: 40px;
+  text-align: center; }
+
 /*! HTML5 Boilerplate v5.1.0 | MIT License | https://html5boilerplate.com/ */
 /*
  * What follows is the result of much research on cross-browser styling.
