@@ -3,12 +3,17 @@ $primary-font-color: #565D64;
 html, body {
   width: 100%;
   height: auto;
-  background-color: #D3D3D3;
+  background-color: #E7E6E7;
+  font-family: 'Raleway', sans-serif;
 }
 
 button {
   background-color: #4585F2;
   color: white;
+  border: none;
+  font-size: 1.5em;
+  font-weight: 200;
+  padding: 0;
 }
 button:hover {
   background-color: #3C7ABB;
@@ -19,36 +24,50 @@ h2 {
   padding-top: 40px;
   padding-bottom: 100px;
   text-align: center;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 3.5em;
 }
 
 .full-list {
-  width: 50%;
+  width: 60%;
   margin: auto;
+  background-color: white;
+  border-radius: 4px;
 
-    .entry-field {
-      width: 100%;
-      height: 2.5em;
+  .entry-field {
+    width: 100%;
+    height: 4em;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid #A9A9A9;
 
-      input {
-        width: 75%;
-        height: 100%;
-        color: $primary-font-color;
-        font-size: 1.25em;
-        font-weight: 200;
-        padding-left: .25em;
-        border: none;
-      }
-      input::-webkit-input-placeholder {
-        font-style: italic;
-      }
-      .add-it-yo {
-        width: 25%;
-        height: 100%;
-        border: none;
-        font-size: 1.25em;
-        padding: 0;
-      }
+    input {
+      width: 85%;
+      height: 100%;
+      color: $primary-font-color;
+      font-size: 1.5em;
+      font-weight: 200;
+      padding: 0;
+      padding-left: .25em;
+      border: none;
+      border-radius: 4px 0 0 0;
     }
+    input::-webkit-input-placeholder {
+      font-style: italic;
+      font-weight: 200;
+    }
+    .add-it-yo {
+      width: 15%;
+      height: 100%;
+      border-radius: 0 4px 0 0;
+    }
+  }
+}
+
+footer {
+  padding-top: 100px;
+
+  p {
+    text-align: center;
+
+  }
 }
