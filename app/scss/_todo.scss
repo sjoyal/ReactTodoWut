@@ -1,10 +1,54 @@
+$primary-font-color: #565D64;
+
 html, body {
   width: 100%;
   height: auto;
+  background-color: #D3D3D3;
+}
+
+button {
+  background-color: #4585F2;
+  color: white;
+}
+button:hover {
+  background-color: #3C7ABB;
 }
 
 h2 {
   margin: 0;
   padding-top: 40px;
+  padding-bottom: 100px;
   text-align: center;
+  font-weight: 300;
+  font-size: 3.5em;
+}
+
+.full-list {
+  width: 50%;
+  margin: auto;
+
+    .entry-field {
+      width: 100%;
+      height: 2.5em;
+
+      input {
+        width: 75%;
+        height: 100%;
+        color: $primary-font-color;
+        font-size: 1.25em;
+        font-weight: 200;
+        padding-left: .25em;
+        border: none;
+      }
+      input::-webkit-input-placeholder {
+        font-style: italic;
+      }
+      .add-it-yo {
+        width: 25%;
+        height: 100%;
+        border: none;
+        font-size: 1.25em;
+        padding: 0;
+      }
+    }
 }
