@@ -1,10 +1,12 @@
 $primary-font-color: #565D64;
+$primary-background-color: #E7E6E7;
 
 html, body {
   width: 100%;
   height: auto;
-  background-color: #E7E6E7;
+  background-color: $primary-background-color;
   font-family: 'Raleway', sans-serif;
+  color: $primary-font-color;
 }
 
 button {
@@ -17,6 +19,7 @@ button {
 }
 button:hover {
   background-color: #3C7ABB;
+  font-style: italic;
 }
 
 h2 {
@@ -48,7 +51,7 @@ h2 {
       font-size: 1.5em;
       font-weight: 200;
       padding: 0;
-      padding-left: .25em;
+      padding-left: .5em;
       border: none;
     }
     input::-webkit-input-placeholder {
@@ -58,6 +61,23 @@ h2 {
     .add-it-yo {
       width: 15%;
       height: 100%;
+    }
+  }
+}
+
+.individual-items {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    @extend .entry-field;
+    border-bottom: 1px solid #21252B; 
+
+    .item {
+      font-size: 1.5em;
+      font-weight: 200;
+      line-height: 2.5em;
+      padding-left: .5em;
     }
   }
 }
