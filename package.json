@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server --directory"
+    "start": "browser-sync start --server --directory",
+    "sass": "node-sass app/scss/main.scss -o app/css"
   },
   "repository": {
     "type": "git",
