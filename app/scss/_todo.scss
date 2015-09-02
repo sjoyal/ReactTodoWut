@@ -44,7 +44,7 @@ h2 {
     height: 4em;
     border-bottom: 1px solid #A9A9A9;
 
-    input {
+    .enter-todo {
       width: 85%;
       height: 100%;
       color: $primary-font-color;
@@ -54,7 +54,7 @@ h2 {
       padding-left: .5em;
       border: none;
     }
-    input::-webkit-input-placeholder {
+    .enter-todo::-webkit-input-placeholder {
       font-style: italic;
       font-weight: 200;
     }
@@ -70,13 +70,24 @@ h2 {
     li {
       @extend .entry-field;
       border-color: #E8E8E8;
+      line-height: 4em;
+
+      .cross-off {
+        font-size: 2em;
+        margin: 0;
+        margin-left: .5em;
+        vertical-align: 2.5px;
+      }
 
       .item {
         font-size: 1.5em;
         font-weight: 200;
-        line-height: 2.5em;
         padding-left: .5em;
+        margin: 0;
       }
+    }
+    .delete-item::after {
+      
     }
   }
 }
