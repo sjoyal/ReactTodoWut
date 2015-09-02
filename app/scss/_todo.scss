@@ -35,9 +35,9 @@ h2 {
   width: 60%;
   margin: auto;
   background-color: white;
-  -moz-box-shadow:    0px 3px 4px 2px #A3A3A3;
-  -webkit-box-shadow: 0px 3px 4px 2px #A3A3A3;
-  box-shadow:         0px 3px 4px 2px #A3A3A3;
+  -moz-box-shadow:    0px 3px 6px 3px #A3A3A3;
+  -webkit-box-shadow: 0px 3px 6px 3px #A3A3A3;
+  box-shadow:         0px 3px 6px 3px #A3A3A3;
 
   .entry-field {
     width: 100%;
@@ -63,21 +63,20 @@ h2 {
       height: 100%;
     }
   }
-}
+  .individual-items {
+    list-style-type: none;
+    padding: 0;
 
-.individual-items {
-  list-style-type: none;
-  padding: 0;
+    li {
+      @extend .entry-field;
+      border-color: #E8E8E8;
 
-  li {
-    @extend .entry-field;
-    border-bottom: 1px solid #21252B; 
-
-    .item {
-      font-size: 1.5em;
-      font-weight: 200;
-      line-height: 2.5em;
-      padding-left: .5em;
+      .item {
+        font-size: 1.5em;
+        font-weight: 200;
+        line-height: 2.5em;
+        padding-left: .5em;
+      }
     }
   }
 }
