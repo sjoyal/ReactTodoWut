@@ -1,6 +1,6 @@
 {
   "name": "react-todo-wut",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A todo list playground for experimenting with react.js",
   "main": "index.js",
   "scripts": {
