@@ -22,22 +22,22 @@
             <input class="enter-todo" placeholder="What do you need to do?" /><!--
             --><button class="add-it-yo">add it!</button>
           </div>
-          <ul class="individual-items">
+          <ul class="individual-items" data-bind="foreach: tasks">
             <li class="delete-item">
               <input class="cross-off" type="checkbox" />
-              <label class="item">Buy milk</label>
+              <label class="item" data-bind="text: task"></label>
               <button type="reset" class="delete-item"></button>
             </li>
-            <li>
-              <input class="cross-off" type="checkbox" />
-              <label class="item">Walk the dog</label>
-              <button class="delete-item"></button>
-            </li>
-            <li>
-              <input class="cross-off" type="checkbox" />
-              <label class="item">Drink the beers</label>
-              <button class="delete-item"></button>
-            </li>
+<!--             <li>
+  <input class="cross-off" type="checkbox" />
+  <label class="item">Walk the dog</label>
+  <button class="delete-item"></button>
+</li>
+<li>
+  <input class="cross-off" type="checkbox" />
+  <label class="item">Drink the beers</label>
+  <button class="delete-item"></button>
+</li> -->
           </ul> <!--.individual-items-->
         </figure> <!-- .full-list -->
         <footer>
