@@ -1,9 +1,9 @@
 (function(){
 
   // constructor for inputting a new task
-  function taskAdded(task){
-    this.task = task;
-    this.completed = false;
+  function taskAdded(todo){
+    this.todo = todo;
+    this.completed = ko.observable(false);
   };
 
   // this is the ViewModel
@@ -18,14 +18,14 @@
       self.tasks.push(new taskAdded(task));
     };
     // research this .remove() method, is this from knockout and reads the index #?
-    this.removeTask = function(task){
-      self.tasks.remove(task);
+    this.removeTask = function($index){
+      self.tasks.remove($index);
       // self.tasks.splice(index, 1);
     };
     // FIXME: This probably isn't right, research how to feed it the approp. index
-    this.completeTask = function(index){
-      self.tasks[index].completed = true;
-    };
+    // this.completeTask = function($index){
+    //   self.tasks[$index].completed = true;
+    // };
   };
 
   // apply bindings to the browser
