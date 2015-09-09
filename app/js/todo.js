@@ -1,14 +1,13 @@
 (function(){
 
-  // constructor for inputting a new task
-  function taskAdded(todo){
-    this.todo = todo;
-    this.completed = ko.observable(false);
-  };
-
   // this is the ViewModel
   function ToDoViewModel(){
     var self = this;
+    // constructor for inputting a new task
+    function taskAdded(todo){
+      this.todo = todo;
+      this.completed = ko.observable(false);
+    };
     this.tasks = ko.observableArray([
       new taskAdded('Drink the beers'),
       new taskAdded('Read the books'),
