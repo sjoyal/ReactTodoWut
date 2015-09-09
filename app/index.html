@@ -19,8 +19,8 @@
         <h2>todos for yous</h2>
         <figure class="full-list">
           <div class="entry-field">
-            <input class="enter-todo" placeholder="What do you need to do?" /><!--
-            --><button class="add-it-yo">add it!</button>
+            <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo"/><!--
+            --><button class="add-it-yo" data-bind="click: addTask">add it!</button>
           </div>
           <ul class="individual-items" data-bind="foreach: tasks">
             <li class="delete-item">
