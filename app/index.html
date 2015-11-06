@@ -17,6 +17,9 @@
     </head>
     <body>
         <h2>todos for yous</h2>
+        <!-- ko if: tasksRemaining -->
+          <div>No tasks to complete!</div>
+        <!-- /ko -->
         <figure class="full-list">
           <div class="entry-field">
             <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo"/><!--
@@ -37,6 +40,7 @@
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
         <script src="../bower_components/knockout/dist/knockout.js"></script>
+        <script src="../bower_components/lodash/lodash.js"></script>
         <!-- endbower -->
         <script src="scripts/todo.js"></script>
     </body>
