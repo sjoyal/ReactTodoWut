@@ -19,19 +19,21 @@
         <h2>todos for yous</h2>
         <figure class="full-list">
           <!-- ko if: !tasksRemaining() -->
-            <div class="tasks-complete-message"><em>No tasks to complete!</em></div>
+            <div class="tasks-complete-message">
+              <em>No tasks to complete!</em>
+            </div> <!-- .tasks-complete-message -->
           <!-- /ko -->
           <div class="entry-field">
             <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo"/><!--
             --><button class="add-it-yo" data-bind="click: addTask">add it!</button>
-          </div>
+          </div> <!-- .entry-field -->
           <ul class="individual-items" data-bind="foreach: tasks">
             <li class="delete-item">
               <input class="cross-off" type="checkbox" data-bind="checked: completed" />
               <label class="item" data-bind="text: todo, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
               <button type="reset" class="delete-item" data-bind="click: $root.removeTask"></button>
-            </li>
-          </ul> <!--.individual-items-->
+            </li> <!-- .delete-item -->
+          </ul> <!-- .individual-items-->
         </figure> <!-- .full-list -->
         <div class="modal fade" tab-index="-1" id="no-outstanding-tasks">
           <div class="modal-dialog">
@@ -43,9 +45,9 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
-            </div><!-- /.modal-content -->
-          </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+            </div><!-- .modal-content -->
+          </div><!-- .modal-dialog -->
+        </div><!-- .modal -->
         <footer>
           <p class="footer-center">© 2015 Sean Joyal. All Rights Reserved</p>
         </footer>

@@ -25,6 +25,7 @@
       self.tasks.remove(task);
     };
 
+    // looks for a task that hasn't been completed and returns true or false as appropriate
     this.tasksRemaining = ko.pureComputed(function(){
       var anyTasks = !!_.find(this.tasks(), function(task){
         return task.completed() === false;
@@ -32,6 +33,7 @@
       return anyTasks;
     }, this);
 
+    // subscribes to tasksRemaining to be notified of a change in its value, on change launch modal
     this.tasksRemaining.subscribe(function(value){
       if (!value) {
         $('#no-outstanding-tasks').modal('show');
