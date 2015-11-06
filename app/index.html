@@ -17,10 +17,10 @@
     </head>
     <body>
         <h2>todos for yous</h2>
-        <!-- ko if: !tasksRemaining() -->
-          <div>No tasks to complete!</div>
-        <!-- /ko -->
         <figure class="full-list">
+          <!-- ko if: !tasksRemaining() -->
+            <div class="tasks-complete-message"><em>No tasks to complete!</em></div>
+          <!-- /ko -->
           <div class="entry-field">
             <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo"/><!--
             --><button class="add-it-yo" data-bind="click: addTask">add it!</button>

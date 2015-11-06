@@ -31,7 +31,6 @@
       });
       return anyTasks;
     }, this);
-    console.log(this.tasksRemaining());
   };
 
   // apply bindings to the browser
