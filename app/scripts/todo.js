@@ -31,6 +31,12 @@
       });
       return anyTasks;
     }, this);
+
+    this.tasksRemaining.subscribe(function(value){
+      if (!value) {
+        $('#no-outstanding-tasks').modal('show');
+      }
+    }, this);
   };
 
   // apply bindings to the browser
