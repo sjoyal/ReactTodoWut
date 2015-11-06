@@ -18,11 +18,12 @@
     "url": "https://github.com/sjoyal/ReactTodoWut/issues"
   },
   "homepage": "https://github.com/sjoyal/ReactTodoWut#readme",
-  "dependencies": {},
+  "dependencies": {
+    "requirejs": "^2.1.20"
+  },
   "devDependencies": {
     "browser-sync": "^2.8.2",
     "node-sass": "^3.2.0",
-    "react-tools": "^0.13.3",
     "wiredep": "^2.2.2"
   }
 }
