@@ -1,3 +1,4 @@
+;
 (function(){
 
   // constructor for inputting a new task
