@@ -4,7 +4,7 @@
   // constructor for inputting a new task
   function taskAdded(todo){
     this.todo = todo;
-    this.completed = ko.observable(true);
+    this.completed = ko.observable(false);
   };
 
   // this is the ViewModel
@@ -26,13 +26,12 @@
     };
 
     this.tasksRemaining = ko.pureComputed(function(){
-      var anyTasks = _.find(this.tasks, function(task){
-        task.completed === true;
+      var anyTasks = !!_.find(this.tasks(), function(task){
+        return task.completed() === false;
       });
-      console.log(anyTasks);
       return anyTasks;
     }, this);
-    console.log(this.tasksRemaining);
+    console.log(this.tasksRemaining());
   };
 
   // apply bindings to the browser
