@@ -27,13 +27,7 @@
             <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo, event: { keyup: enterAdd }"/><!--
             --><button class="add-it-yo" data-bind="click: addTask">add it!</button>
           </div> <!-- .entry-field -->
-          <ul class="individual-items" data-bind="foreach: tasks">
-            <li class="delete-item">
-              <input class="cross-off" type="checkbox" data-bind="checked: completed" />
-              <label class="item" data-bind="text: todo, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
-              <button type="reset" class="delete-item" data-bind="click: $parent.removeTask"></button>
-            </li> <!-- .delete-item -->
-          </ul> <!-- .individual-items-->
+          <tasklist></tasklist>
         </figure> <!-- .full-list -->
         <div class="modal fade" tab-index="-1" data-bind="noTaskModal: tasksRemaining()">
           <div class="modal-dialog">
@@ -51,6 +45,15 @@
         <footer>
           <p class="footer-center">© 2015 Sean Joyal. All Rights Reserved</p>
         </footer>
+        <template id="task-list-component">
+          <ul class="individual-items" data-bind="foreach: tasks">
+            <li class="delete-item">
+              <input class="cross-off" type="checkbox" data-bind="checked: completed" />
+              <label class="item" data-bind="text: todo, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
+              <button type="reset" class="delete-item" data-bind="click: $parent.removeTask"></button>
+            </li> <!-- .delete-item -->
+          </ul> <!-- .individual-items-->
+        </template>  
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
