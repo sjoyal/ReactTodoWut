@@ -27,7 +27,7 @@
             <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo, event: { keyup: enterAdd }"/><!--
             --><button class="add-it-yo" data-bind="click: addTask">add it!</button>
           </div> <!-- .entry-field -->
-          <tasklist></tasklist>
+          <task-list params="tasks: tasks, removeTask: removeTask"></task-list>
         </figure> <!-- .full-list -->
         <div class="modal fade" tab-index="-1" data-bind="noTaskModal: tasksRemaining()">
           <div class="modal-dialog">
@@ -53,7 +53,7 @@
               <button type="reset" class="delete-item" data-bind="click: $parent.removeTask"></button>
             </li> <!-- .delete-item -->
           </ul> <!-- .individual-items-->
-        </template>  
+        </template>
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>

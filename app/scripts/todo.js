@@ -38,7 +38,7 @@
       return anyTasks;
     }, this);
 
-    // subscribes to tasksRemaining to be notified of a change in its value, on change launch modal
+    /* subscribes to tasksRemaining to be notified of a change in its value, on change launch modal */
     // this.tasksRemaining.subscribe(function(value){
     //   if (!value) {
     //     $('#no-outstanding-tasks').modal('show');
@@ -46,12 +46,10 @@
     // }, this);
   };
 
+  // custom binding to set dialogue and launch modal -- I miss my subscribe...
   ko.bindingHandlers.noTaskModal = {
     init: function(element, valueAccessor){
-      var initialTasksLeft = ko.unwrap(valueAccessor());
-      if (initialTasksLeft === !true) {
-        $('.modal-text').text('No tasks to complete. Add some!');
-      }
+      $('.modal-text').text('No tasks to complete. Add some!');
     },
     update: function(element, valueAccessor){
       var remainingTasksLeft = ko.unwrap(valueAccessor());
@@ -61,7 +59,19 @@
     }
   };
 
-  // apply bindings to the browser
+  // custom component viewModel reusable for various lists
+  function taskListViewModel(params){
+    this.tasks = params ? params.tasks : {};
+    this.removeTask = params ? params.removeTask : function(){};
+  };
+
+  // custom component registration using template element from index.html and viewModel above
+  ko.components.register('task-list', {
+    viewModel: taskListViewModel,
+    template: { element: 'task-list-component' }
+  });
+
+  // apply main app bindings to the browser
   ko.applyBindings(new ToDoViewModel());
 
 })();
