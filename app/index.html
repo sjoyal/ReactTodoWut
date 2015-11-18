@@ -24,23 +24,23 @@
             </div> <!-- .tasks-complete-message -->
           <!-- /ko -->
           <div class="entry-field">
-            <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo"/><!--
+            <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo, event: { keyup: enterAdd }"/><!--
             --><button class="add-it-yo" data-bind="click: addTask">add it!</button>
           </div> <!-- .entry-field -->
           <ul class="individual-items" data-bind="foreach: tasks">
             <li class="delete-item">
               <input class="cross-off" type="checkbox" data-bind="checked: completed" />
               <label class="item" data-bind="text: todo, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
-              <button type="reset" class="delete-item" data-bind="click: $root.removeTask"></button>
+              <button type="reset" class="delete-item" data-bind="click: $parent.removeTask"></button>
             </li> <!-- .delete-item -->
           </ul> <!-- .individual-items-->
         </figure> <!-- .full-list -->
-        <div class="modal fade" tab-index="-1" id="no-outstanding-tasks">
+        <div class="modal fade" tab-index="-1" data-bind="noTaskModal: tasksRemaining()">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#88;</span></button>
-                <h4>You currently have no tasks to complete. Good job!</h4>
+                <h4 class="modal-text"></h4>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

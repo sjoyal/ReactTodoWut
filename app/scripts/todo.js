@@ -21,6 +21,11 @@
       self.tasks.push(new taskAdded(self.thisToDo()));
       self.thisToDo('');
     };
+    this.enterAdd = function(unused, event){
+      if (self.thisToDo().length > 0 && event.keyCode === 13) {
+        self.addTask();
+      }
+    };
     this.removeTask = function(task){
       self.tasks.remove(task);
     };
@@ -34,11 +39,26 @@
     }, this);
 
     // subscribes to tasksRemaining to be notified of a change in its value, on change launch modal
-    this.tasksRemaining.subscribe(function(value){
-      if (!value) {
-        $('#no-outstanding-tasks').modal('show');
+    // this.tasksRemaining.subscribe(function(value){
+    //   if (!value) {
+    //     $('#no-outstanding-tasks').modal('show');
+    //   }
+    // }, this);
+  };
+
+  ko.bindingHandlers.noTaskModal = {
+    init: function(element, valueAccessor){
+      var initialTasksLeft = ko.unwrap(valueAccessor());
+      if (initialTasksLeft === !true) {
+        $('.modal-text').text('No tasks to complete. Add some!');
       }
-    }, this);
+    },
+    update: function(element, valueAccessor){
+      var remainingTasksLeft = ko.unwrap(valueAccessor());
+      if (remainingTasksLeft === !true) {
+        $(element).modal('show');
+      }
+    }
   };
 
   // apply bindings to the browser
