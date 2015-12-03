@@ -3,12 +3,11 @@
 
   // constructor for inputting a new task
   function taskAdded(todo){
-    this.todo = todo;
+    this.todo = ko.observable(todo);
     this.completed = ko.observable(false);
     this.editing = ko.observable();
-    this.editor = ko.observable(todo);
     this.updateTodo = function(){
-      this.todo = this.editor();
+      this.editing(false);
     };
   };
 
