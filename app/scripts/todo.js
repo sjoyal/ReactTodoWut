@@ -5,6 +5,11 @@
   function taskAdded(todo){
     this.todo = todo;
     this.completed = ko.observable(false);
+    this.editing = ko.observable();
+    this.editor = ko.observable(todo);
+    this.updateTodo = function(){
+      this.todo = this.editor();
+    };
   };
 
   // this is the ViewModel
@@ -46,7 +51,7 @@
     // }, this);
   };
 
-  // custom binding to set dialogue and launch modal -- I miss my subscribe...
+  // custom binding to set dialogue and launch modal -- Don't need the subscribtion above anymore...
   ko.bindingHandlers.noTaskModal = {
     init: function(element, valueAccessor){
       $('.modal-text').text('No tasks to complete. Add some!');
@@ -61,7 +66,7 @@
 
   // custom component viewModel reusable for various lists
   function taskListViewModel(params){
-    this.tasks = params ? params.tasks : {};
+    this.tasks = params ? params.tasks : [];
     this.removeTask = params ? params.removeTask : function(){};
   };
 
