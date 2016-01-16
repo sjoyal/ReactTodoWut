@@ -48,6 +48,7 @@
     //     $('#no-outstanding-tasks').modal('show');
     //   }
     // }, this);
+    // stuff
   };
 
   // custom binding to set dialogue and launch modal -- Don't need the subscribtion above anymore...
