@@ -109,11 +109,19 @@ button {
 }
 
 .modal {
+  .modal-dialog {
+    margin-top: 3.5rem;
+  }
   .modal-content {
     height: 7.5rem;
     line-height: 7.5rem;
+    background-color: #0B3994;
+    filter:alpha(opacity=75); /* IE */
+    -moz-opacity:0.75; /* Mozilla */
+    opacity: 0.75;
     font-size: 1.6rem;
     text-align: center;
+    color: #fff;
     border-radius: .2rem;
   }
 }
