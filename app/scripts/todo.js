@@ -52,8 +52,6 @@
       var remainingTasksLeft = ko.unwrap(valueAccessor());
 
       !remainingTasksLeft ? $(element).modal('show') : null;
-      debugger;
-      
       setTimeout(function(){
         $(element).modal('hide');
       }, 2500);
