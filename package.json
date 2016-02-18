@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.8.2",
-    "node-sass": "^3.2.0",
+    "node-sass": "^3.4.2",
     "wiredep": "^2.2.2"
   }
 }
