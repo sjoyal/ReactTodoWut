@@ -1,5 +1,6 @@
 ;
 (function(){
+  'use strict';
 
   // constructor for inputting a new task
   function taskAdded(todo){
@@ -36,38 +37,35 @@
 
     // looks for a task that hasn't been completed and returns true or false as appropriate
     this.tasksRemaining = ko.pureComputed(function(){
-      var anyTasks = !!_.find(this.tasks(), function(task){
-        return task.completed() === false;
+      return !!_.find(this.tasks(), function(task){
+        return !task.completed();
       });
-      return anyTasks;
     }, this);
-
-    /* subscribes to tasksRemaining to be notified of a change in its value, on change launch modal */
-    // this.tasksRemaining.subscribe(function(value){
-    //   if (!value) {
-    //     $('#no-outstanding-tasks').modal('show');
-    //   }
-    // }, this);
-    // stuff
   };
 
-  // custom binding to set dialogue and launch modal -- Don't need the subscribtion above anymore...
+  // custom binding to set dialogue and launch modal
   ko.bindingHandlers.noTaskModal = {
     init: function(element, valueAccessor){
       $('.modal-text').text('No tasks to complete. Add some!');
     },
     update: function(element, valueAccessor){
       var remainingTasksLeft = ko.unwrap(valueAccessor());
-      if (remainingTasksLeft === !true) {
-        $(element).modal('show');
-      }
+
+      !remainingTasksLeft ? $(element).modal('show') : null;
+      debugger;
+      
+      setTimeout(function(){
+        $(element).modal('hide');
+      }, 2500);
     }
   };
 
-  // custom component viewModel reusable for various lists
+  // taskList component  reusable for various lists
   function taskListViewModel(params){
-    this.tasks = params ? params.tasks : [];
-    this.removeTask = params ? params.removeTask : function(){};
+    params = params || {};
+
+    this.tasks = params.tasks;
+    this.removeTask = params.removeTask;
   };
 
   // custom component registration using template element from index.html and viewModel above

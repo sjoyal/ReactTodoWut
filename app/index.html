@@ -18,11 +18,6 @@
     <body>
         <h2>todos for yous</h2>
         <figure class="full-list">
-          <!-- ko if: !tasksRemaining() -->
-            <div class="tasks-complete-message">
-              <em>No tasks to complete!</em>
-            </div> <!-- .tasks-complete-message -->
-          <!-- /ko -->
           <div class="entry-field">
             <input class="enter-todo" autofocus
               placeholder="What do you need to do?"
@@ -35,11 +30,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#88;</span></button>
                 <h4 class="modal-text"></h4>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
             </div><!-- .modal-content -->
           </div><!-- .modal-dialog -->
