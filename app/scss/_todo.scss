@@ -27,7 +27,7 @@ button {
   font-size: 1.4rem;
 }
 
-.full-list {
+.main-container {
   position: relative;
   width: 60%;
   margin: auto;
@@ -36,12 +36,12 @@ button {
   -webkit-box-shadow: 0 .2rem .4rem .2rem $box-shadow-color;
   box-shadow:         0 .2rem .4rem .2rem $box-shadow-color;
 
-  .entry-field {
+  .input-container {
     height: 3rem;
     width: 100%;
     border-bottom: .1rem solid #A9A9A9;
 
-    .enter-todo {
+    .input-field {
       height: 100%;
       width: 85%;
       padding: 0 0 0 .5rem;
@@ -50,7 +50,7 @@ button {
       color: $primary-font-color;
     }
 
-    .add-it-yo {
+    .input-button {
       height: 100%;
       width: 15%;
       padding: 0;
@@ -59,11 +59,11 @@ button {
       font-weight: 200;
       color: white;
     }
-    .add-it-yo:hover {
+    .input-button:hover {
       background-color: #0B3994;
     }
   }
-  .individual-items {
+  .list-item-container {
     padding: 0;
     list-style-type: none;
 

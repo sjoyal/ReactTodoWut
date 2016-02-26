@@ -5839,7 +5839,7 @@ h2 {
 button {
   font-size: 1.4rem; }
 
-.full-list {
+.main-container {
   position: relative;
   width: 60%;
   margin: auto;
@@ -5847,18 +5847,18 @@ button {
   -moz-box-shadow: 0 0.2rem 0.4em 0.2rem #A3A3A3;
   -webkit-box-shadow: 0 0.2rem 0.4rem 0.2rem #A3A3A3;
   box-shadow: 0 0.2rem 0.4rem 0.2rem #A3A3A3; }
-  .full-list .entry-field {
+  .main-container .input-container {
     height: 3rem;
     width: 100%;
     border-bottom: .1rem solid #A9A9A9; }
-    .full-list .entry-field .enter-todo {
+    .main-container .input-container .input-field {
       height: 100%;
       width: 85%;
       padding: 0 0 0 .5rem;
       border: none;
       font-weight: 200;
       color: #565D64; }
-    .full-list .entry-field .add-it-yo {
+    .main-container .input-container .input-button {
       height: 100%;
       width: 15%;
       padding: 0;
@@ -5866,37 +5866,37 @@ button {
       background-color: #3659FF;
       font-weight: 200;
       color: white; }
-    .full-list .entry-field .add-it-yo:hover {
+    .main-container .input-container .input-button:hover {
       background-color: #0B3994; }
-  .full-list .individual-items {
+  .main-container .list-item-container {
     padding: 0;
     list-style-type: none; }
-    .full-list .individual-items li {
+    .main-container .list-item-container li {
       position: relative;
       width: 100%;
       border-bottom: .1rem solid #E8E8E8; }
-      .full-list .individual-items li .cross-off {
+      .main-container .list-item-container li .cross-off {
         margin: 0 0 0 .5rem;
         font-size: 2rem;
         vertical-align: middle; }
-      .full-list .individual-items li .item {
+      .main-container .list-item-container li .item {
         margin: 0;
         padding: .5rem 0 .5rem .5rem;
         font-size: 1.2rem;
         font-weight: 200; }
-      .full-list .individual-items li .delete-item {
+      .main-container .list-item-container li .delete-item {
         display: none;
         position: absolute;
         top: .1rem;
         right: .5rem;
         border: none;
         background: none; }
-      .full-list .individual-items li .delete-item::after {
+      .main-container .list-item-container li .delete-item::after {
         content: '\24cd';
         font-size: 1.75rem; }
-    .full-list .individual-items li:hover .delete-item {
+    .main-container .list-item-container li:hover .delete-item {
       display: block; }
-    .full-list .individual-items li:hover .delete-item:hover {
+    .main-container .list-item-container li:hover .delete-item:hover {
       color: black; }
 
 .modal .modal-dialog {

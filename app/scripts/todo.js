@@ -74,5 +74,4 @@
 
   // apply main app bindings to the browser
   ko.applyBindings(new ToDoViewModel());
-
 })();
