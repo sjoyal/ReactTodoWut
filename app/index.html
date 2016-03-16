@@ -19,35 +19,35 @@
         <h2>todos for yous</h2>
         <figure class="main-container">
           <div class="input-container">
-            <input class="input-field" autofocus
+            <input class="input-container__field" autofocus
               placeholder="What do you need to do?"
               data-bind="value: thisToDo, event: { keyup: enterAdd }"/><!--
-              --><button class="input-button" data-bind="click: addTask">add it!</button>
+              --><button class="input-container__button" data-bind="click: addTask">add it!</button>
           </div> <!-- .entry-field -->
           <task-list params="tasks: tasks"></task-list>
         </figure> <!-- .full-list -->
         <div class="modal fade" tab-index="-1" data-bind="noTaskModal: tasksRemaining()">
           <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-text"></div>
+                <div class="text-center">No tasks to complete. Add some!</div>
             </div><!-- .modal-content -->
           </div><!-- .modal-dialog -->
         </div><!-- .modal -->
         <footer>
-          <p class="footer-center">© 2015 Sean Joyal. All Rights Reserved</p>
+          <div class="text-center">© 2015 Sean Joyal. All Rights Reserved</div>
         </footer>
         <template id="task-list-component">
           <ul class="list-item-container" data-bind="foreach: tasks">
             <!-- ko ifnot: editing -->
-            <li>
-              <input class="cross-off" type="checkbox" data-bind="checked: completed" />
-              <label class="item" data-bind="text: todo, event: { dblclick: $component.editTask }, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
-              <button type="reset" class="delete-item" data-bind="click: $component.removeTask"></button>
+            <li class="list-item">
+              <input class="list-item__strikethrough" type="checkbox" data-bind="checked: completed" />
+              <label class="list-item__title" data-bind="text: todo, event: { dblclick: $component.editTask }, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
+              <button type="reset" class="list-item__remove--item" data-bind="click: $component.removeTask"></button>
             </li> <!-- .delete-item -->
             <!-- /ko -->
             <!-- ko if: editing -->
-            <li>
-              <input class="enter-todo" data-bind="value: todo, valueUpdate: 'afterkeydown', keyUpHandler: editing, event: { blur: $component.saveEditing }" />
+            <li class="list-item">
+              <input class="list-item__update--field" data-bind="value: todo, valueUpdate: 'afterkeydown', keyUpHandler: editing, event: { blur: $component.saveEditing }" />
             </li>
             <!-- /ko -->
           </ul> <!-- .individual-items-->

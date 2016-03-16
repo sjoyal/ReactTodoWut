@@ -9,7 +9,7 @@
     this.editing = ko.observable();
   };
 
-  // this is the ViewModel
+  // root ViewModel; instantiates list of tasks, and exposes methods associated with adding task to the list
   function ToDoViewModel(){
     var self = this;
 
@@ -20,7 +20,9 @@
       new taskAdded('Watch the shows')
     ]);
     this.addTask = function(){
-      this.tasks.push(new taskAdded(self.thisToDo()));
+      if (this.thisToDo().length > 0) {
+        this.tasks.push(new taskAdded(self.thisToDo()));
+      }
       this.thisToDo('');
     };
     this.enterAdd = function(unused, event){
@@ -37,6 +39,7 @@
     }, this);
   };
 
+  // custom binding for handling keyup events when editing an existing task
   ko.bindingHandlers.keyUpHandler = {
     init: function(element, valueAccessor, allBindings, viewModel, bindingContext){
       var value = ko.unwrap(valueAccessor()),
@@ -71,11 +74,8 @@
     }
   };
 
-  // custom binding to set dialogue and launch modal
+  // custom binding to launch modal when there are no remaining tasks left
   ko.bindingHandlers.noTaskModal = {
-    init: function(element, valueAccessor){
-      $('.modal-text').text('No tasks to complete. Add some!');
-    },
     update: function(element, valueAccessor){
       var remainingTasksLeft = ko.unwrap(valueAccessor());
 
@@ -86,7 +86,7 @@
     }
   };
 
-  // taskList component  reusable for various lists
+  // taskList component reusable for various lists, exposes methods for changing existing tasks
   function taskListViewModel(params){
     params = params || {};
 
