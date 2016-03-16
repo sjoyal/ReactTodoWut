@@ -1,114 +1,138 @@
 $primary-font-color: #565D64;
 $primary-background-color: #E7E6E7;
+$box-shadow-color: #A3A3A3;
+$modal-background-color: #0B3994;
+$white-font-color: #fff;
 
-html, body {
-  width: 100%;
+html {
+  font-size: 62.5%;
+}
+
+body {
   height: auto;
+  width: 100%;
   background-color: $primary-background-color;
+  font-size: 1.4rem;
   font-family: 'Raleway', sans-serif;
   color: $primary-font-color;
 }
+
 h2 {
   margin: 0;
-  padding-top: 60px;
-  padding-bottom: 80px;
+  padding: 6rem 0 3rem 0;
   text-align: center;
+  font-size: 2.5rem;
   font-weight: 200;
-  font-size: 3.5em;
 }
 
-.full-list {
+button {
+  font-size: 1.4rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.main-container {
+  position: relative;
   width: 60%;
   margin: auto;
-  background-color: white;
-  -moz-box-shadow:    0px 3px 6px 3px #A3A3A3;
-  -webkit-box-shadow: 0px 3px 6px 3px #A3A3A3;
-  box-shadow:         0px 3px 6px 3px #A3A3A3;
+  background-color: $white-font-color;
+  box-shadow: 0 .2rem .4rem .2rem $box-shadow-color;
 
-  .entry-field {
+  .input-container {
+    height: 3rem;
     width: 100%;
-    height: 4em;
-    border-bottom: 1px solid #A9A9A9;
+    border-bottom: .1rem solid #A9A9A9;
 
-    .enter-todo {
+    &__field {
+      height: 100%;
       width: 85%;
-      height: 100%;
+      padding: 0 0 0 .5rem;
+      border: none;
+      font-weight: 200;
       color: $primary-font-color;
-      font-size: 1.5em;
-      font-weight: 200;
-      padding: 0;
-      padding-left: .5em;
-      border: none;
     }
-    .enter-todo::-webkit-input-placeholder {
-      font-style: italic;
-      font-weight: 200;
-    }
-    .add-it-yo {
-      background-color: #3659FF;
-      color: white;
-      border: none;
-      font-size: 1.5em;
-      font-weight: 200;
-      padding: 0;
-      width: 15%;
+
+    &__button {
       height: 100%;
+      width: 15%;
+      padding: 0;
+      border: none;
+      background-color: #3659FF;
+      font-weight: 200;
+      color: $white-font-color;
     }
-    .add-it-yo:hover {
+    &__button:hover {
       background-color: #0B3994;
     }
   }
-  .individual-items {
-    list-style-type: none;
+  .list-item-container {
     padding: 0;
+    list-style-type: none;
 
-    li {
-      @extend .entry-field;
-      border-color: #E8E8E8;
-      line-height: 4em;
+    .list-item {
+      $root: &;
       position: relative;
+      width: 100%;
+      border-bottom: .1rem solid #E8E8E8;
 
-      .cross-off {
-        font-size: 2em;
-        margin: 0;
-        margin-left: .5em;
-        vertical-align: 2.5px;
+      &__strikethrough {
+        margin: 0 0 0 .5rem;
+        font-size: 2rem;
+        vertical-align: middle;
       }
-      .item {
-        font-size: 1.5em;
+      &__title {
+        width: calc(100% - 5rem);
+        margin: 0;
+        padding: .5rem 0 .5rem .5rem;
+        font-size: 1.2rem;
         font-weight: 200;
-        padding-left: .5em;
-        margin: 0;
       }
-      .delete-item {
+      &__remove--item {
         display: none;
         position: absolute;
-        top: 0;
-        right: 1em;
+        top: .1rem;
+        right: .5rem;
         border: none;
         background: none;
       }
-      .delete-item::after {
+      &__remove--item::after {
         content: '\24cd';
-        font-size: 1.75em;
+        font-size: 1.75rem;
+      }
+      &__update--field {
+        @extend .list-item__title;
+        width: 100%;
+      }
+      &:hover {
+        .list-item__remove--item {
+          display: block;
+        }
+        .list-item__remove--item:hover {
+          color: black;
+        }
       }
     }
-    li:hover {
+  }
+}
 
-      .delete-item {
-        display: block;
-      }
-      .delete-item:hover {
-        color: black;
-      }
-    }
+.modal {
+  .modal-dialog {
+    margin-top: 3.5rem;
+  }
+  .modal-content {
+    height: 7.5rem;
+    line-height: 7.5rem;
+    background-color: $modal-background-color;
+    opacity: 0.75;
+    font-size: 1.6rem;
+    color: $white-font-color;
+    border-radius: .2rem;
   }
 }
 
 footer {
-  padding-top: 15px;
-
-  p {
-    text-align: center;
-  }
+  padding-top: 1.2rem;
+  font-size: 1rem;
 }

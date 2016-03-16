@@ -13,34 +13,51 @@
         <!-- endbower -->
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="scripts/lib/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
         <h2>todos for yous</h2>
-        <figure class="full-list">
-          <div class="entry-field">
-            <input class="enter-todo" placeholder="What do you need to do?" data-bind="value: thisToDo"/><!--
-            --><button class="add-it-yo" data-bind="click: addTask">add it!</button>
-          </div>
-          <ul class="individual-items" data-bind="foreach: tasks">
-            <li class="delete-item">
-              <input class="cross-off" type="checkbox" data-bind="checked: completed" />
-              <label class="item" data-bind="text: todo, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
-              <button type="reset" class="delete-item" data-bind="click: $root.removeTask"></button>
-            </li>
-          </ul> <!--.individual-items-->
+        <figure class="main-container">
+          <div class="input-container">
+            <input class="input-container__field" autofocus
+              placeholder="What do you need to do?"
+              data-bind="value: thisToDo, event: { keyup: enterAdd }"/><!--
+              --><button class="input-container__button" data-bind="click: addTask">add it!</button>
+          </div> <!-- .entry-field -->
+          <task-list params="tasks: tasks"></task-list>
         </figure> <!-- .full-list -->
+        <div class="modal fade" tab-index="-1" data-bind="noTaskModal: tasksRemaining()">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="text-center">No tasks to complete. Add some!</div>
+            </div><!-- .modal-content -->
+          </div><!-- .modal-dialog -->
+        </div><!-- .modal -->
         <footer>
-          <p class="footer-center">© 2015 Sean Joyal. All Rights Reserved</p>
+          <div class="text-center">© 2015 Sean Joyal. All Rights Reserved</div>
         </footer>
+        <template id="task-list-component">
+          <ul class="list-item-container" data-bind="foreach: tasks">
+            <!-- ko ifnot: editing -->
+            <li class="list-item">
+              <input class="list-item__strikethrough" type="checkbox" data-bind="checked: completed" />
+              <label class="list-item__title" data-bind="text: todo, event: { dblclick: $component.editTask }, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
+              <button type="reset" class="list-item__remove--item" data-bind="click: $component.removeTask"></button>
+            </li> <!-- .delete-item -->
+            <!-- /ko -->
+            <!-- ko if: editing -->
+            <li class="list-item">
+              <input class="list-item__update--field" data-bind="value: todo, valueUpdate: 'afterkeydown', keyUpHandler: editing, event: { blur: $component.saveEditing }" />
+            </li>
+            <!-- /ko -->
+          </ul> <!-- .individual-items-->
+        </template>
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
         <script src="../bower_components/knockout/dist/knockout.js"></script>
-        <script src="../bower_components/react/react.js"></script>
+        <script src="../bower_components/lodash/lodash.js"></script>
         <!-- endbower -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="js/todo.js"></script>
+        <script src="scripts/todo.js"></script>
     </body>
 </html>
