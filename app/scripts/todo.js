@@ -7,9 +7,6 @@
     this.todo = ko.observable(todo);
     this.completed = ko.observable(false);
     this.editing = ko.observable();
-    this.updateTodo = function(){
-      this.editing(false);
-    };
   };
 
   // this is the ViewModel
@@ -23,16 +20,13 @@
       new taskAdded('Watch the shows')
     ]);
     this.addTask = function(){
-      self.tasks.push(new taskAdded(self.thisToDo()));
-      self.thisToDo('');
+      this.tasks.push(new taskAdded(self.thisToDo()));
+      this.thisToDo('');
     };
     this.enterAdd = function(unused, event){
-      if (self.thisToDo().length > 0 && event.keyCode === 13) {
-        self.addTask();
+      if (this.thisToDo().length > 0 && event.keyCode === 13) {
+        this.addTask();
       }
-    };
-    this.removeTask = function(task){
-      self.tasks.remove(task);
     };
 
     // looks for a task that hasn't been completed and returns true or false as appropriate
@@ -41,6 +35,40 @@
         return !task.completed();
       });
     }, this);
+  };
+
+  ko.bindingHandlers.keyUpHandler = {
+    init: function(element, valueAccessor, allBindings, viewModel, bindingContext){
+      var value = ko.unwrap(valueAccessor()),
+          context = bindingContext.$data,
+          rootContext = bindingContext.$component,
+          keyUpHandler = function(e){
+            if (e.keyCode === 13) {
+              rootContext.saveEditing(context);
+            } else if (e.keyCode === 27){
+              rootContext.cancelEditing(context);
+            }
+          };
+
+      if (value) {
+        $(element).focus();
+        $(element).on('keyup', keyUpHandler);
+      }
+    },
+    update: function(element, valueAccessor, allBindings, viewModel, bindingContext){
+      var value = ko.unwrap(valueAccessor()),
+          keyUpHandler = function(e){
+            if (e.keyCode === 13) {
+              rootContext.saveEditing(context);
+            } else if (e.keyCode === 27){
+              rootContext.cancelEditing(context);
+            }
+          };
+
+      if (!value) {
+        $(element).off('keyup', keyUpHandler);
+      }
+    }
   };
 
   // custom binding to set dialogue and launch modal
@@ -63,7 +91,29 @@
     params = params || {};
 
     this.tasks = params.tasks;
-    this.removeTask = params.removeTask;
+    this.removeTask = function(task){
+      this.tasks.remove(task);
+    }.bind(this);
+
+    this.editTask = function(task){
+      task.originalTodo = ko.unwrap(task.todo);
+      task.editing(true);
+    };
+
+    this.saveEditing = function(task){
+      var todo = ko.unwrap(task.todo);
+
+      if (!todo && todo.length === 0){
+        this.tasks.remove(task);
+      } else {
+        task.editing(false);
+      }
+    }.bind(this);
+
+    this.cancelEditing = function(task){
+      task.todo(task.originalTodo);
+      task.editing(false);
+    };
   };
 
   // custom component registration using template element from index.html and viewModel above

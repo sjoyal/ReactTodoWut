@@ -5422,20 +5422,21 @@ button.close {
   position: relative;
   overflow: hidden;
   width: 100%; }
-  .carousel-inner > .item {
+  .carousel-inner > .item, .main-container .list-item-container li .carousel-inner > .enter-todo {
     display: none;
     position: relative;
     -webkit-transition: 0.6s ease-in-out left;
     -o-transition: 0.6s ease-in-out left;
     transition: 0.6s ease-in-out left; }
-    .carousel-inner > .item > img,
-    .carousel-inner > .item > a > img {
+    .carousel-inner > .item > img, .main-container .list-item-container li .carousel-inner > .enter-todo > img,
+    .carousel-inner > .item > a > img, .main-container .list-item-container li
+    .carousel-inner > .enter-todo > a > img {
       display: block;
       max-width: 100%;
       height: auto;
       line-height: 1; }
     @media all and (transform-3d), (-webkit-transform-3d) {
-      .carousel-inner > .item {
+      .carousel-inner > .item, .main-container .list-item-container li .carousel-inner > .enter-todo {
         -webkit-transition: -webkit-transform 0.6s ease-in-out;
         -moz-transition: -moz-transform 0.6s ease-in-out;
         -o-transition: -o-transform 0.6s ease-in-out;
@@ -5446,15 +5447,15 @@ button.close {
         -webkit-perspective: 1000px;
         -moz-perspective: 1000px;
         perspective: 1000px; }
-        .carousel-inner > .item.next, .carousel-inner > .item.active.right {
+        .carousel-inner > .item.next, .main-container .list-item-container li .carousel-inner > .next.enter-todo, .carousel-inner > .item.active.right, .main-container .list-item-container li .carousel-inner > .active.right.enter-todo {
           -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
           left: 0; }
-        .carousel-inner > .item.prev, .carousel-inner > .item.active.left {
+        .carousel-inner > .item.prev, .main-container .list-item-container li .carousel-inner > .prev.enter-todo, .carousel-inner > .item.active.left, .main-container .list-item-container li .carousel-inner > .active.left.enter-todo {
           -webkit-transform: translate3d(-100%, 0, 0);
           transform: translate3d(-100%, 0, 0);
           left: 0; }
-        .carousel-inner > .item.next.left, .carousel-inner > .item.prev.right, .carousel-inner > .item.active {
+        .carousel-inner > .item.next.left, .main-container .list-item-container li .carousel-inner > .next.left.enter-todo, .carousel-inner > .item.prev.right, .main-container .list-item-container li .carousel-inner > .prev.right.enter-todo, .carousel-inner > .item.active, .main-container .list-item-container li .carousel-inner > .active.enter-todo {
           -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
           left: 0; } }
@@ -5879,7 +5880,8 @@ button {
         margin: 0 0 0 .5rem;
         font-size: 2rem;
         vertical-align: middle; }
-      .main-container .list-item-container li .item {
+      .main-container .list-item-container li .item, .main-container .list-item-container li .enter-todo {
+        width: calc(100% - 5rem);
         margin: 0;
         padding: .5rem 0 .5rem .5rem;
         font-size: 1.2rem;
@@ -5894,6 +5896,8 @@ button {
       .main-container .list-item-container li .delete-item::after {
         content: '\24cd';
         font-size: 1.75rem; }
+      .main-container .list-item-container li .enter-todo {
+        width: 100%; }
     .main-container .list-item-container li:hover .delete-item {
       display: block; }
     .main-container .list-item-container li:hover .delete-item:hover {

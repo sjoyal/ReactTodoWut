@@ -24,7 +24,7 @@
               data-bind="value: thisToDo, event: { keyup: enterAdd }"/><!--
               --><button class="input-button" data-bind="click: addTask">add it!</button>
           </div> <!-- .entry-field -->
-          <task-list params="tasks: tasks, removeTask: removeTask"></task-list>
+          <task-list params="tasks: tasks"></task-list>
         </figure> <!-- .full-list -->
         <div class="modal fade" tab-index="-1" data-bind="noTaskModal: tasksRemaining()">
           <div class="modal-dialog">
@@ -39,15 +39,15 @@
         <template id="task-list-component">
           <ul class="list-item-container" data-bind="foreach: tasks">
             <!-- ko ifnot: editing -->
-            <li class="delete-item">
+            <li>
               <input class="cross-off" type="checkbox" data-bind="checked: completed" />
-              <label class="item" data-bind="text: todo, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
-              <button type="reset" class="delete-item" data-bind="click: $parent.removeTask"></button>
+              <label class="item" data-bind="text: todo, event: { dblclick: $component.editTask }, style: {'text-decoration': completed() ? 'line-through' : 'none'}"></label>
+              <button type="reset" class="delete-item" data-bind="click: $component.removeTask"></button>
             </li> <!-- .delete-item -->
             <!-- /ko -->
             <!-- ko if: editing -->
-            <li class="entry-field">
-              <input data-bind="value: todo" class="enter-todo" style="width: 100%" />
+            <li>
+              <input class="enter-todo" data-bind="value: todo, valueUpdate: 'afterkeydown', keyUpHandler: editing, event: { blur: $component.saveEditing }" />
             </li>
             <!-- /ko -->
           </ul> <!-- .individual-items-->

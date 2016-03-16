@@ -78,6 +78,7 @@ button {
         vertical-align: middle;
       }
       .item {
+        width: calc(100% - 5rem);
         margin: 0;
         padding: .5rem 0 .5rem .5rem;
         font-size: 1.2rem;
@@ -94,6 +95,10 @@ button {
       .delete-item::after {
         content: '\24cd';
         font-size: 1.75rem;
+      }
+      .enter-todo {
+        @extend .item;
+        width: 100%;
       }
     }
     li:hover {
